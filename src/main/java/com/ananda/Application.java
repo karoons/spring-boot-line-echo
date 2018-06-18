@@ -26,7 +26,7 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 @LineMessageHandler
 public class Application {
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     @ResponseBody
     String home() {
         return "Hello World!";
