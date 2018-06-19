@@ -36,9 +36,17 @@ public class ProjectStatus {
     @Autowired
     private LineMessagingClient lineMessagingClient;
 
+    @RequestMapping(value = "/", produces = "application/json;charset=utf-8")
+    @ResponseStatus(HttpStatus.OK)
+//    @EventMapping
+    public Object currentStatus2() throws Exception {
+//       System.out.println("EVENT--- -"+event);
+        return "ok2";
+    }
+
    @RequestMapping(value = "/webhook", produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
-   @EventMapping
+//   @EventMapping
     public Object currentStatus() throws Exception {
 //       System.out.println("EVENT--- -"+event);
         return "ok";
