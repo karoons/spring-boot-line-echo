@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 //@RestController
 @SpringBootApplication
-@LineMessageHandler
+//@LineMessageHandler
 public class Application {
 
 //    @RequestMapping("/webhook")
@@ -60,9 +60,5 @@ public class Application {
 //        System.out.println("----------------------event:: " + event);
 //    }
 
-    @EventMapping
-    public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-        System.out.println("--------------------------event: " + event);
-        return new TextMessage(event.getMessage().getText());
-    }
+
 }
