@@ -22,7 +22,7 @@ import java.net.URLDecoder;
 @RequestMapping()
 public class ProjectStatus {
 
-   @RequestMapping(value = "/webhook", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+   @RequestMapping(value = "/webhook", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
     public Object currentStatus() throws Exception {
         return "ok";
