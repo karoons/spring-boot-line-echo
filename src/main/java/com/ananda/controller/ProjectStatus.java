@@ -36,7 +36,7 @@ public class ProjectStatus {
     @Autowired
     private LineMessagingClient lineMessagingClient;
 
-   @RequestMapping(value = "/webhook", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+   @RequestMapping(value = "/webhook", produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
    @EventMapping
     public Object currentStatus() throws Exception {
