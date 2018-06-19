@@ -38,17 +38,17 @@ public class ProjectStatus {
 
     @RequestMapping(value = "/", produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
-//    @EventMapping
-    public Object currentStatus2() throws Exception {
-//       System.out.println("EVENT--- -"+event);
+    @EventMapping
+    public Object currentStatus2(MessageEvent<TextMessageContent> event) throws Exception {
+       System.out.println("EVENT 1--- -"+event);
         return "ok2";
     }
 
    @RequestMapping(value = "/webhook", produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
-//   @EventMapping
-    public Object currentStatus() throws Exception {
-//       System.out.println("EVENT--- -"+event);
+   @EventMapping
+    public Object currentStatus(MessageEvent<TextMessageContent> event) throws Exception {
+       System.out.println("EVENT 2--- -"+event);
         return "ok";
     }
 
