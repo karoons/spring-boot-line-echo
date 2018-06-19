@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.URLDecoder;
 
 /**
@@ -30,46 +31,46 @@ import java.net.URLDecoder;
  */
 @RestController
 @RequestMapping()
-@LineMessageHandler
+//@LineMessageHandler
 public class ProjectStatus {
 
-    @Autowired
-    private LineMessagingClient lineMessagingClient;
+//    @Autowired
+//    private LineMessagingClient lineMessagingClient;
 
     @RequestMapping(value = "/", produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
-    @EventMapping
-    public Object currentStatus2(MessageEvent<TextMessageContent> event) throws Exception {
+//    @EventMapping
+    public String currentStatus2(MessageEvent<TextMessageContent> event) throws Exception {
        System.out.println("EVENT 1--- -"+event);
         return "ok2";
     }
 //
-//   @RequestMapping(value = "/webhook", produces = "application/json;charset=utf-8")
-//    @ResponseStatus(HttpStatus.OK)
+   @RequestMapping(value = "/webhook", produces = "application/json;charset=utf-8")
+    @ResponseStatus(HttpStatus.OK)
 //   @EventMapping
-//    public Object currentStatus(MessageEvent<TextMessageContent> event) throws Exception {
-//       System.out.println("EVENT 2--- -"+event);
-//        return "ok";
+    public String currentStatus(HttpServletRequest req) throws Exception {
+       System.out.println("EVENT 2--- -"+req.getHeader("X-Line-Signature"));
+        return "ok";
+    }
+
+//        @EventMapping
+//    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+//
+//        System.out.println("----------------------event: " + event);
+//        final String originalMessageText = event.getMessage().getText();
+//
+//        switch (originalMessageText.toUpperCase()) {
+//            case "FLEX":
+//                return new ExampleFlexMessageSupplier().get();
+//            default:
+//                return new TextMessage(originalMessageText);
+//        }
 //    }
-
-        @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-
-        System.out.println("----------------------event: " + event);
-        final String originalMessageText = event.getMessage().getText();
-
-        switch (originalMessageText.toUpperCase()) {
-            case "FLEX":
-                return new ExampleFlexMessageSupplier().get();
-            default:
-                return new TextMessage(originalMessageText);
-        }
-    }
-
-    @EventMapping
-    public void handleDefaultMessageEvent(Event event) {
-        System.out.println("----------------------event:: " + event);
-    }
+//
+//    @EventMapping
+//    public void handleDefaultMessageEvent(Event event) {
+//        System.out.println("----------------------event:: " + event);
+//    }
 
 //    @RequestMapping(value = "/server/ok", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
 //    @ResponseStatus(HttpStatus.OK)
