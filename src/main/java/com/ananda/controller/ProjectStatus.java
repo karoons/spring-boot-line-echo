@@ -33,5 +33,5 @@ public class ProjectStatus {
     public Object currentServer() throws Exception {
         return " is ok http://local";
     }
-    
+//    http://localhost:8080/callback/api/v1/project/your/ok
 }
