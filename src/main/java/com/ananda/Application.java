@@ -41,22 +41,28 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+//    @EventMapping
+//    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
+//
+//        System.out.println("----------------------event: " + event);
+//        final String originalMessageText = event.getMessage().getText();
+//
+//        switch (originalMessageText.toUpperCase()) {
+//            case "FLEX":
+//                return new ExampleFlexMessageSupplier().get();
+//            default:
+//                return new TextMessage(originalMessageText);
+//        }
+//    }
+//
+//    @EventMapping
+//    public void handleDefaultMessageEvent(Event event) {
+//        System.out.println("----------------------event:: " + event);
+//    }
+
     @EventMapping
-    public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-
-        System.out.println("----------------------event: " + event);
-        final String originalMessageText = event.getMessage().getText();
-
-        switch (originalMessageText.toUpperCase()) {
-            case "FLEX":
-                return new ExampleFlexMessageSupplier().get();
-            default:
-                return new TextMessage(originalMessageText);
-        }
-    }
-
-    @EventMapping
-    public void handleDefaultMessageEvent(Event event) {
-        System.out.println("----------------------event:: " + event);
+    public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
+        System.out.println("--------------------------event: " + event);
+        return new TextMessage(event.getMessage().getText());
     }
 }
