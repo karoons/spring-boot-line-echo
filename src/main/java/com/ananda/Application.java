@@ -25,17 +25,17 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author Karoons
  */
+//@RestController
 @SpringBootApplication
 @LineMessageHandler
-@RestController
 public class Application {
 
-    @RequestMapping("/webhook")
-    @EventMapping
-    String home(MessageEvent<TextMessageContent> event) {
-        System.out.println("---event: " + event);
-        return "ok";
-    }
+//    @RequestMapping("/webhook")
+//    @EventMapping
+//    String home(MessageEvent<TextMessageContent> event) {
+//        System.out.println("---event: " + event);
+//        return "ok";
+//    }
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);

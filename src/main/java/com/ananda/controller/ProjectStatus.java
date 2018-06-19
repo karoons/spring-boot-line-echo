@@ -19,19 +19,19 @@ import java.net.URLDecoder;
  * @author Karoons
  */
 @RestController
-@RequestMapping("/api/v1/project")
+@RequestMapping()
 public class ProjectStatus {
 
-   @RequestMapping(value = "/your/ok", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+   @RequestMapping(value = "/webhook", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
     @ResponseStatus(HttpStatus.OK)
     public Object currentStatus() throws Exception {
-        return " is ok ^^ การุณย์ " + URLDecoder.decode("การุณย์", "UTF-8");
+        return "ok";
     }
 
-    @RequestMapping(value = "/server/ok", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
-    @ResponseStatus(HttpStatus.OK)
-    public Object currentServer() throws Exception {
-        return " is ok http://local";
-    }
+//    @RequestMapping(value = "/server/ok", method = RequestMethod.GET, produces = "application/json;charset=utf-8")
+//    @ResponseStatus(HttpStatus.OK)
+//    public Object currentServer() throws Exception {
+//        return " is ok http://local";
+//    }
 //    http://localhost:8080/callback/api/v1/project/your/ok
 }
