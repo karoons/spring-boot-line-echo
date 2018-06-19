@@ -30,10 +30,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
 
+    // method = RequestMethod.POST
+
     @RequestMapping("/webhook")
     @EventMapping
     String home(MessageEvent<TextMessageContent> event) {
         System.out.println("---event: " + event);
+        return "ok";
+    }
+
+//    @RequestMapping("/webhook",method = RequestMethod.POST)
+    @RequestMapping(value = "/webhook", method = RequestMethod.POST)
+    @EventMapping
+    String home2(MessageEvent<TextMessageContent> event) {
+        System.out.println("---event POST: " + event);
         return "ok";
     }
 
