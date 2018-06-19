@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Application {
 
     @RequestMapping("/webhook")
+    @EventMapping
     String home(MessageEvent<TextMessageContent> event) {
         System.out.println("---event: " + event);
         return "ok";
