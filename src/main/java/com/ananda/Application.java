@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Application {
 
-    @RequestMapping("/")
+    @RequestMapping("/webhook")
     String home() {
         return "ok";
     }
