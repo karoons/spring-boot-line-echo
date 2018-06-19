@@ -27,13 +27,13 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @LineMessageHandler
-@RestController
+//@RestController
 public class Application {
 
-    @RequestMapping("/webhook")
-    String home() {
-        return "ok";
-    }
+//    @RequestMapping("/webhook")
+//    String home() {
+//        return "ok";
+//    }
 
     public static void main(String[] args){
         SpringApplication.run(Application.class, args);
