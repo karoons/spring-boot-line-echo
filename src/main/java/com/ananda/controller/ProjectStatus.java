@@ -37,7 +37,7 @@ public class ProjectStatus {
     @ResponseStatus(HttpStatus.OK)
    @EventMapping
     public Object currentStatus(MessageEvent<TextMessageContent> event) throws Exception {
-       System.out.println("EVENT--- -"+event.getSource().getUserId());
+       System.out.println("EVENT--- -"+event);
         return "ok";
     }
 
